@@ -1,0 +1,44 @@
+Задача 1
+using System;
+class HelloWorld {
+  static void Main() {
+    double S, P;
+    Console.WriteLine("Посчитаем площадь и периметр данного прямоугольника.");
+    Console.WriteLine("Введите длину стороны a: ");
+    double a = Convert.ToDouble(Console.ReadLine());
+    Console.WriteLine("Введите длину стороны b: ");
+    double b = Convert.ToDouble(Console.ReadLine());
+    S = a * b;
+    P = (a + b) * 2;
+    Console.WriteLine("Площадь прямоугольника равна: " + S);
+    Console.WriteLine("А периметр прямоугольника равен: " + P);
+  }
+}
+Задача 2
+using System;
+class HelloWorld {
+  static void Main() {
+    double d, L;
+    double p = 3.14;
+    Console.WriteLine("Найдем длину окружности.");
+    Console.WriteLine("Введите длину диаметра окружности: ");
+    d = Convert.ToDouble(Console.ReadLine());
+    L = p * d;
+    Console.WriteLine("Длина окружности равна: " + L);
+  }
+}
+Задача 3
+using System;
+class HelloWorld {
+  static void Main() {
+    double a, b, N;
+    Console.WriteLine("Найдем среднее арифметическое двух чисел.");
+    Console.WriteLine("Введите первое число: ");
+    a = Convert.ToDouble(Console.ReadLine());
+    Console.WriteLine("Введите второе число: ");
+    b = Convert.ToDouble(Console.ReadLine());
+    N = (a + b) / 2;
+    Console.WriteLine("Среднее арифметическое введенных чисел равно: " + N);
+  }
+}
+Задача 4

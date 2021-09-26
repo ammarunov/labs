@@ -42,3 +42,54 @@ class HelloWorld {
   }
 }
 Задача 4
+using System;
+
+namespace TestLearning
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double a, b, S, R, P, Ch;
+            Console.WriteLine("Найдем сумму, разность, произведение и частное квадратов двух ненулевых чисел");
+            Console.WriteLine("Введите первое число: ");
+            a = Convert.ToDouble(Console.ReadLine());
+            double D_a = Math.Pow(a, 2);
+            Console.WriteLine("Введите второе число: ");
+            b = Convert.ToDouble(Console.ReadLine());
+            double D_b = Math.Pow(b, 2);
+            S = D_a + D_b;
+            P = D_a * D_b;
+            R = D_a - D_b;
+            Ch = D_a / D_b;
+            Console.WriteLine("Сумма квадратов данных чисел равна " + S + ", их разность равна " + R + ", их произведение равно " + P + ", а их частное равно " + Ch);
+        }
+
+    }
+}
+Задача 5
+using System;
+
+namespace TestLearning
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double a, b, S, R, P, Ch;
+            Console.WriteLine("Найдем сумму, разность, произведение и частное модулей двух ненулевых чисел");
+            Console.WriteLine("Введите первое число: ");
+            a = Convert.ToDouble(Console.ReadLine());
+            double D_a = Math.Abs(a);
+            Console.WriteLine("Введите второе число: ");
+            b = Convert.ToDouble(Console.ReadLine());
+            double D_b = Math.Abs(b);
+            S = D_a + D_b;
+            P = D_a * D_b;
+            R = D_a - D_b;
+            Ch = D_a / D_b;
+            Console.WriteLine("Сумма модулей данных чисел равна " + S + ", их разность равна " + R + ", их произведение равно " + P + ", а их частное равно " + Ch);
+        }
+
+    }
+}

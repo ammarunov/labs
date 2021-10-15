@@ -1,1 +1,185 @@
+using System;
 
+namespace TestLearning
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			while (true)
+			{
+				Console.WriteLine("Задание к теме 6.");
+				Console.WriteLine(" ");
+				Console.WriteLine(@"Выберите выполняемую программу:
+            - Определить значение угла, данного в градусах, в радианах, учитывая, что 180◦ = π радианов. (введите 1)
+            - Определить значение угла, данного в радианах, в градусах, учитывая, что 180◦ = π радианов (введите 2)
+            - Известно, что X кг конфет стоит A рублей. Определить, сколько стоит 1 кг и Y кг этих же конфет. (введите 3)
+            - Скорость первого автомобиля V1 км/ч, второго — V2 км/ч, расстояние между ними S км. Определить расстояние между ними через T часов, если автомобили удаляются друг от друга. (введите 4)
+            - Решить линейное уравнение A·x + B = 0, заданное своими коэффициентами A и B (коэффициент A не равен 0). (введите 5)
+            - Найти решение системы линейных уравнений вида 
+				      A1·x + B1·y = C1 
+				      A2·x + B2·y = C2 (введите 6)");							
+				string q = Console.ReadLine();
+				if (q == "1")
+				{
+					double a, r;
+					Console.WriteLine("Введите величину угла в градусах.");
+					a = Convert.ToDouble(Console.ReadLine());
+					r = Math.Round(((a * Math.PI) / 180), 2);
+					Console.WriteLine($"Данный угол в радианах равен {r}");
+				}
+				if (q == "2")
+				{
+					double a, r;
+					Console.WriteLine("Введите величину угла в радианах.");
+					r = Convert.ToDouble(Console.ReadLine());
+					a = Math.Round(((r * 180) / Math.PI), 2);
+					Console.WriteLine($"Данный угол в градусах равен {a}");
+				}
+				if (q == "3")
+				{
+					double X, A, Y;
+					Console.WriteLine("Сколько килограмм конфет приобретено?");
+					Console.Write("X = ");
+					X = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine("Сколько за них заплатили?");
+					Console.Write("A = ");
+					A = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine("Цену какого количества конфет в килограммах вы хотели бы узнать?");
+					Console.Write("Y = ");
+					Y = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine($"Тогда килограмм этих конфет стоит {Math.Round((A / X), 2)} руб., а {Y} килограмм конфет стоит {Math.Round((A / X) * Y, 2)}.");
+
+				}
+				if (q == "4")
+				{
+					double V1, V2, S, T;
+					Console.WriteLine("Введите значение скорости первого автомобиля.");
+					Console.Write("V1 = ");
+					V1 = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine("Введите значение скорости второго автомобиля.");
+					Console.Write("V2 = ");
+					V2 = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine("Какое расстояние между ними?");
+					Console.Write("S = ");
+					S = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine("Сколько часов они едут?");
+					Console.Write("T = ");
+					T = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine("Сколько часов они едут?");
+					Console.WriteLine($"Тогда расстояние между ними через заданное время будет равно {(V1 + V2) * T + S}.");
+				}
+				if (q == "5")
+				{
+					double A, B, x;
+					Console.WriteLine("Чему равен коэффициент А?");
+					Console.Write("A = ");
+					A = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine("Чему равен коэффициент B?");
+					Console.Write("B = ");
+					B = Convert.ToDouble(Console.ReadLine());
+					x = (-B) / A;
+					Console.WriteLine($"Тогда x в линейном уравнении A·x + B = 0 равен {x}");
+				}
+				if (q == "6")
+                {
+					double A1, B1, C1, A2, B2, C2, x, y;
+					Console.WriteLine("Чему равен коэффициент А1?");
+					Console.Write("A1 = ");
+					A1 = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine("Чему равен коэффициент B1?");
+					Console.Write("B1 = ");
+					B1 = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine("Чему равен коэффициент C1?");
+					Console.Write("C1 = ");
+					C1 = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine("Чему равен коэффициент А2?");
+					Console.Write("A2 = ");
+					A2 = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine("Чему равен коэффициент B2?");
+					Console.Write("B2 = ");
+					B2 = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine("Чему равен коэффициент C2?");
+					Console.Write("C2 = ");
+					C2 = Convert.ToDouble(Console.ReadLine());
+					if ((A1 == 0) && (A2 != 0))
+                    {
+						y = C1 / B1;
+						x = (C2 - B2 * y) / A2;
+						Console.WriteLine($"Ответ: ({x}, {y}) ");
+						break;
+					}
+					if ((A1 != 0) && (A2 == 0))
+					{
+						y = C2 / B2;
+						x = (C1 - B1 * y) / A1;
+						Console.WriteLine($"Ответ: ({x}, {y}) ");
+						break;
+					}
+					if ((A1 == 0) && (A2 == 0))
+                    {
+						if ((C1 / B1) != (C2 / B2))
+                        {
+							Console.WriteLine("Система не имеет решений");
+							break;
+						}
+                        else
+                        {
+							y = C1 / B1;
+							Console.WriteLine($"Ответ: ({y})");
+							break;
+						}
+                    }
+					if ((B1 == 0) && (B2 != 0))
+					{
+						x = C1 / A1;
+						y = (C2 - A2 * x) / B2;
+						Console.WriteLine($"Ответ: ({x}, {y}) ");
+						break;
+					}
+					if ((B1 != 0) && (B2 == 0))
+					{
+						x = C2 / A2;
+						y = (C1 - A1 * x) / B1;
+						Console.WriteLine($"Ответ: ({x}, {y}) ");
+						break;
+					}
+					if ((B1 == 0) && (B2 == 0))
+					{
+						if ((C1 / A1) != (C2 / A2))
+						{
+							Console.WriteLine("Система не имеет решений");
+							break;
+						}
+						else
+						{
+							x = C1 / A1;
+							Console.WriteLine($"Ответ: ({x})");
+							break;
+						}
+					}
+                    else
+                    {
+						y = ((A1 * C2 - A2 * C1) / (A1 * B2 - A2 * B1));
+						x = (C1 - B1 * y) / A1;
+						Console.WriteLine($"Ответ: ({x}, {y}) ");
+						break;
+					}
+					
+				}
+				Console.WriteLine("Продолжить программу? Введите \"+\" чтобы продолжить, в ином случае - что угодно.");
+				string answ = Console.ReadLine();
+				if (answ == "+")
+				{
+					continue;
+				}
+				else
+				{
+					break;
+				}
+
+			}
+		}
+
+	}
+}

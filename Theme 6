@@ -84,11 +84,21 @@ namespace TestLearning
 
 				}
 				if (q == "6")
-        {
+				{
 					double A, a;
 					Console.WriteLine("Введите значение A.");
 					A = Convert.ToDouble(Console.ReadLine());
 					a = Math.Pow(A, 2);
+					Console.WriteLine($"Тогда значение A^8 с заданными условиями будет равно {a * a * a * a}");
+				}
+				if (q == "7")
+                		{
+					double A, a, b;
+					Console.WriteLine("Введите значение A.");
+					A = Convert.ToDouble(Console.ReadLine());
+					a = Math.Pow(A, 2);
+					b = Math.Pow(A, 3);
+					Console.WriteLine($"Тогда значение A^15 с заданными условиями будет равно {a * a * a * b * b * b}");
 				}
 				Console.WriteLine("Продолжить программу? Введите \"+\" чтобы продолжить, в ином случае - что угодно.");
 				string answ = Console.ReadLine();

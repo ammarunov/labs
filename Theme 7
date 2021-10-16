@@ -18,7 +18,7 @@ namespace TestLearning
             - Решить линейное уравнение A·x + B = 0, заданное своими коэффициентами A и B (коэффициент A не равен 0). (введите 5)
             - Найти решение системы линейных уравнений вида 
 				      A1·x + B1·y = C1 
-				      A2·x + B2·y = C2 (введите 6)");							
+				      A2·x + B2·y = C2 (введите 6)");
 				string q = Console.ReadLine();
 				if (q == "1")
 				{
@@ -60,13 +60,12 @@ namespace TestLearning
 					Console.WriteLine("Введите значение скорости второго автомобиля.");
 					Console.Write("V2 = ");
 					V2 = Convert.ToDouble(Console.ReadLine());
-					Console.WriteLine("Какое расстояние между ними?");
+					Console.WriteLine("Какое расстояние между ними (в км)?");
 					Console.Write("S = ");
 					S = Convert.ToDouble(Console.ReadLine());
 					Console.WriteLine("Сколько часов они едут?");
 					Console.Write("T = ");
 					T = Convert.ToDouble(Console.ReadLine());
-					Console.WriteLine("Сколько часов они едут?");
 					Console.WriteLine($"Тогда расстояние между ними через заданное время будет равно {(V1 + V2) * T + S}.");
 				}
 				if (q == "5")
@@ -82,7 +81,7 @@ namespace TestLearning
 					Console.WriteLine($"Тогда x в линейном уравнении A·x + B = 0 равен {x}");
 				}
 				if (q == "6")
-                {
+				{
 					double A1, B1, C1, A2, B2, C2, x, y;
 					Console.WriteLine("Чему равен коэффициент А1?");
 					Console.Write("A1 = ");
@@ -103,7 +102,7 @@ namespace TestLearning
 					Console.Write("C2 = ");
 					C2 = Convert.ToDouble(Console.ReadLine());
 					if ((A1 == 0) && (A2 != 0))
-                    {
+					{
 						y = C1 / B1;
 						x = (C2 - B2 * y) / A2;
 						Console.WriteLine($"Ответ: ({x}, {y}) ");
@@ -117,19 +116,19 @@ namespace TestLearning
 						break;
 					}
 					if ((A1 == 0) && (A2 == 0))
-                    {
+					{
 						if ((C1 / B1) != (C2 / B2))
-                        {
+						{
 							Console.WriteLine("Система не имеет решений");
 							break;
 						}
-                        else
-                        {
+						else
+						{
 							y = C1 / B1;
 							Console.WriteLine($"Ответ: ({y})");
 							break;
 						}
-                    }
+					}
 					if ((B1 == 0) && (B2 != 0))
 					{
 						x = C1 / A1;
@@ -147,6 +146,7 @@ namespace TestLearning
 					if ((B1 == 0) && (B2 == 0))
 					{
 						if ((C1 / A1) != (C2 / A2))
+
 						{
 							Console.WriteLine("Система не имеет решений");
 							break;
@@ -158,14 +158,14 @@ namespace TestLearning
 							break;
 						}
 					}
-                    else
-                    {
+					else
+					{
 						y = ((A1 * C2 - A2 * C1) / (A1 * B2 - A2 * B1));
 						x = (C1 - B1 * y) / A1;
 						Console.WriteLine($"Ответ: ({x}, {y}) ");
 						break;
 					}
-					
+
 				}
 				Console.WriteLine("Продолжить программу? Введите \"+\" чтобы продолжить, в ином случае - что угодно.");
 				string answ = Console.ReadLine();

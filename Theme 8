@@ -1,1 +1,94 @@
+using System;
 
+namespace TestLearning
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			while (true)
+			{
+				Console.WriteLine("Задание к теме 8.");
+				Console.WriteLine(" ");
+				Console.WriteLine(@"Выберите выполняемую программу:
+            - Дан размер файла в байтах. Найти количество полных килобайтов, которые занимает данный файл. (введите 1)
+            - Даны целые положительные числа A и B (A > B). На отрезке длины A размещено максимально возможное количество отрезков длины B (без наложений). Найти количество отрезков B, размещенных на отрезке A. (введите 2)
+            - Даны целые положительные числа A и B (A > B). На отрезке длины A размещено максимально возможное количество отрезков длины B (без наложений). Найти длину незанятой части отрезка A. (введите 3)
+            - Дано двузначное число. Вывести число, полученное при перестановке цифр исходного числа. (введите 4)
+            - Дано трехзначное число. В нем зачеркнули первую слева цифру и приписали ее справа. Вывести полученное число. (введите 5)");
+				string q = Console.ReadLine();
+				if (q == "1")
+				{
+					int I1, I2;
+					Console.WriteLine("Чему равен размер файла в байтах?");
+					I1 = Convert.ToInt32(Console.ReadLine());
+					I2 = I1 / 1024;
+					Console.WriteLine($"Файл весит {I2} целых килобайт.");
+
+				}
+				if (q == "2")
+				{
+					int A, B;
+					Console.WriteLine("Какова длина отрезка А?");
+					Console.Write("A = ");
+					A = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine("Какова длина отрезка B?");
+					Console.Write("B = ");
+					B = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine($"Количество отрезков B, размещенных на отрезке A равно {A / B}");
+				}
+				if (q == "3")
+				{
+					int A, B;
+					Console.WriteLine("Какова длина отрезка А?");
+					Console.Write("A = ");
+					A = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine("Какова длина отрезка B?");
+					Console.Write("B = ");
+					B = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine($"При максимальном количестве отрезков B, размещенных на отрезках А, длина незанятой части А равна {A % B}");
+
+				}
+				if (q == "4")
+				{
+					string num;
+					char a;
+					Console.WriteLine("Введите двухзначное число.");
+					num = Console.ReadLine();
+					char [] ar = num.ToCharArray();
+					a = ar[1];
+					ar[1] = ar[0];
+					ar[0] = a;
+					num = String.Concat<char>(ar);
+					Console.WriteLine("Итоговое число равно " + num);
+				}
+				if (q == "5")
+				{
+					string num;
+					char a;
+					Console.WriteLine("Введите трехзначное число.");
+					num = Console.ReadLine();
+					char[] ar = num.ToCharArray();
+					a = ar[0];
+					ar[0] = ar[1];
+					ar[1] = ar[2];
+					ar[2] = a;
+					num = String.Concat<char>(ar);
+					Console.WriteLine("Итоговое число равно " + num);
+				}				
+				Console.WriteLine("Продолжить программу? Введите \"+\" чтобы продолжить, в ином случае - что угодно.");
+				string answ = Console.ReadLine();
+				if (answ == "+")
+				{
+					continue;
+				}
+				else
+				{
+					break;
+				}
+
+			}
+		}
+
+	}
+}

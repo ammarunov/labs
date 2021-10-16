@@ -8,7 +8,7 @@ namespace TestLearning
 		{
 			while (true)
 			{
-				Console.WriteLine("Задание к теме 6.");
+				Console.WriteLine("Задание к теме 7.");
 				Console.WriteLine(" ");
 				Console.WriteLine(@"Выберите выполняемую программу:
             - Определить значение угла, данного в градусах, в радианах, учитывая, что 180◦ = π радианов. (введите 1)

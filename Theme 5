@@ -2,10 +2,10 @@ using System;
 
 namespace TestLearning
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
+	class Program
+	{
+		static void Main(string[] args)
+		{
 			while (true)
 			{
 				Console.WriteLine("Задание к теме 5.");
@@ -15,7 +15,7 @@ namespace TestLearning
             - Длина отрезков AC, BC и их сумму от заданных точек A, B и С. (введите 2)
             - Произведение длин отрезков AC и BC от заданных точек A, B и С, причем точка С расположена между A и B. (введите 3)
             - Периметр и площадь прямоугольника, стороны которого параллельны осям координат, через координаты двух его противоположных вершин. (введите 4)
-            - Периметр и площадь прямоугольника через заданные координаты его вершин. (введите 5)");
+            - Периметр и площадь треугольника через заданные координаты его вершин. (введите 5)");
 				string q = Console.ReadLine();
 				if (q == "1")
 				{
@@ -23,7 +23,7 @@ namespace TestLearning
 					double[] dot2 = new double[2];
 					double length = 0;
 					Console.WriteLine("Введите координаты первой точки.");
-					Console.Write("x1 = "); 
+					Console.Write("x1 = ");
 					dot1[0] = Convert.ToDouble(Console.ReadLine());
 					Console.Write("y1 = ");
 					dot1[1] = Convert.ToDouble(Console.ReadLine());
@@ -112,8 +112,16 @@ namespace TestLearning
 					ac = Math.Sqrt(Math.Pow(dot3[0] - dot2[0], 2) + Math.Pow(dot3[1] - dot2[1], 2));
 					P = ab + bc + ac;
 					p = P / 2;
-					S = Math.Sqrt(p * (p - ab) * (p - bc) * (p - ac));
-					Console.WriteLine($"Периметр данного треугольника равен {P}, его площадь равна {S}");
+					if ((ab > (bc + ac)) || (bc > (ab + ac)) || (ac > (ab + bc)))
+                    			{
+						Console.WriteLine("Такого треугольника не существует.");
+						break;
+                    			}
+                    			else
+                    			{
+						S = Math.Sqrt(p * (p - ab) * (p - bc) * (p - ac));
+						Console.WriteLine($"Периметр данного треугольника равен {P}, его площадь равна {S}");
+					}					
 				}
 				Console.WriteLine("Продолжить программу? Введите \"+\" чтобы продолжить, в ином случае - что угодно.");
 				string answ = Console.ReadLine();
@@ -129,5 +137,5 @@ namespace TestLearning
 			}
 		}
 
-    }
+	}
 }

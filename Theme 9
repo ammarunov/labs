@@ -8,7 +8,7 @@ namespace TestLearning
 		{
 			while (true)
 			{
-				Console.WriteLine("Задание к теме 8.");
+				Console.WriteLine("Задание к теме 9.");
 				Console.WriteLine(" ");
 				Console.WriteLine(@"Выберите выполняемую программу:
             - С начала суток прошло N секунд (N — целое). Найти количество секунд, прошедших с начала последней минуты. (введите 1)

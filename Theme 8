@@ -22,9 +22,16 @@ namespace TestLearning
 					int I1, I2;
 					Console.WriteLine("Чему равен размер файла в байтах?");
 					I1 = Convert.ToInt32(Console.ReadLine());
-					I2 = I1 / 1024;
-					Console.WriteLine($"Файл весит {I2} целых килобайт.");
-
+					if ((I1 % 1024) == 0)
+                    			{
+						I2 = I1 / 1024;
+						Console.WriteLine($"Файл занимает {I2} целых килобайт.");
+					}
+                    			else
+                    			{
+						I2 = (I1 / 1024) + 1;
+						Console.WriteLine($"Файл занимает {I2} целых килобайт.");
+					}
 				}
 				if (q == "2")
 				{

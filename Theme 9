@@ -56,8 +56,8 @@ namespace TestLearning
 					Console.WriteLine("Чему равна сторона квадрата?");
 					Console.Write("C = ");
 					C = Convert.ToInt32(Console.ReadLine());
-					n = (A * B) / Convert.ToInt32(Math.Pow(C, 2));
-					S = (A * B) % Convert.ToInt32(Math.Pow(C, 2));
+					n = (A / C) * (B / C);
+					S = (A * B) - Convert.ToInt32(n * Math.Pow(C, 2));
 					Console.WriteLine($"Количество квадратов, размещенных в прямоугольнике, равно {n}, а площадь незанятой площади прямоугольника равно {S}.");
 				}
 				if (q == "5")

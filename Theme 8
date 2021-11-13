@@ -23,12 +23,12 @@ namespace TestLearning
 					Console.WriteLine("Чему равен размер файла в байтах?");
 					I1 = Convert.ToInt32(Console.ReadLine());
 					if ((I1 % 1024) == 0)
-                    			{
+					{
 						I2 = I1 / 1024;
 						Console.WriteLine($"Файл занимает {I2} целых килобайт.");
 					}
-                    			else
-                    			{
+					else
+					{
 						I2 = (I1 / 1024) + 1;
 						Console.WriteLine($"Файл занимает {I2} целых килобайт.");
 					}
@@ -62,11 +62,18 @@ namespace TestLearning
 					char a;
 					Console.WriteLine("Введите двухзначное число.");
 					num = Console.ReadLine();
-					char [] ar = num.ToCharArray();
+					char[] ar = num.ToCharArray();
 					a = ar[1];
 					ar[1] = ar[0];
 					ar[0] = a;
-					num = String.Concat<char>(ar);
+					if (ar[0] == '0')
+                    {
+						num = Convert.ToString(ar[1]);
+                    }
+                    else
+                    {
+						num = String.Concat<char>(ar);
+					}					
 					Console.WriteLine("Итоговое число равно " + num);
 				}
 				if (q == "5")
@@ -80,9 +87,16 @@ namespace TestLearning
 					ar[0] = ar[1];
 					ar[1] = ar[2];
 					ar[2] = a;
-					num = String.Concat<char>(ar);
+					if (ar[0] == '0')
+					{
+						num = String.Concat(ar[1], ar[2]);
+					}
+					else
+					{
+						num = String.Concat<char>(ar);
+					}
 					Console.WriteLine("Итоговое число равно " + num);
-				}				
+				}
 				Console.WriteLine("Продолжить программу? Введите \"+\" чтобы продолжить, в ином случае - что угодно.");
 				string answ = Console.ReadLine();
 				if (answ == "+")

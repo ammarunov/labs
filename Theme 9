@@ -22,7 +22,7 @@ namespace TestLearning
 					int N;
 					Console.WriteLine("Сколько прошло секунд?");
 					N = Convert.ToInt32(Console.ReadLine());
-					Console.WriteLine($"С начала последней секунды прошло {N % 60} секунд.");
+					Console.WriteLine($"С начала последней минуты прошло {N % 60} секунд.");
 
 				}
 				if (q == "2")

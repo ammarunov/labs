@@ -17,7 +17,7 @@ namespace TestLearning
             - Дано трехзначное число. Проверить истинность высказывания: «Цифры данного числа образуют возрастающую или убывающую последовательность». (введите 4)
             - Дано четырехзначное число. Проверить истинность высказывания: «Данное число читается одинаково слева направо и справа налево». (введите 5)
             - Даны целые числа a, b, c, являющиеся сторонами некоторого треугольника. Проверить истинность высказывания: «Треугольник со сторонами a, b, c является прямоугольным». (введите 6)
-	    - Даны целые числа a, b, c. Проверить истинность высказывания: «Существует треугольник со сторонами a, b, c». (введите 7)");
+			- Даны целые числа a, b, c. Проверить истинность высказывания: «Существует треугольник со сторонами a, b, c». (введите 7)");
 				string q = Console.ReadLine();
 				if (q == "1")
 				{
@@ -26,14 +26,13 @@ namespace TestLearning
 					A = Convert.ToInt32(Console.ReadLine());
 					Console.WriteLine("Введите второе число B.");
 					B = Convert.ToInt32(Console.ReadLine());
-					Console.WriteLine("Справедливы неравенства A > 2 и B ≤ 3 для данных чисел A и B.");
 					if ((A > 2) && (B <= 3))
-                    {
-						Console.Write("Истина.");
-                    }
-                    else
-                    {
-						Console.Write("Ложь.");
+					{
+						Console.Write("True");
+					}
+					else
+					{
+						Console.Write("False");
 					}
 
 				}
@@ -46,14 +45,13 @@ namespace TestLearning
 					B = Convert.ToInt32(Console.ReadLine());
 					Console.WriteLine("Введите третье число C.");
 					C = Convert.ToInt32(Console.ReadLine());
-					Console.WriteLine("Справедливо двойное неравенство A < B < C для данных чисел A и B.");
 					if ((A < B) && (B < C))
 					{
-						Console.Write("Истина.");
+						Console.Write("True");
 					}
 					else
 					{
-						Console.Write("Ложь.");
+						Console.Write("False");
 					}
 				}
 				if (q == "3")
@@ -61,32 +59,100 @@ namespace TestLearning
 					int A;
 					Console.WriteLine("Введите целое положительное число.");
 					A = Convert.ToInt32(Console.ReadLine());
-					Console.WriteLine("Данное число является четным двузначным");
-					if (((A / 10) <= 9) && ((A / 2) == 0))
+					if (((A / 10) < 10) && ((A % 2) == 0))
 					{
-						Console.Write("Истина.");
+						Console.Write("True");
 					}
-                    else
-                    {
-						Console.Write("Ложь.");
+					else
+					{
+						Console.Write("False");
 					}
 
 				}
 				if (q == "4")
 				{
-
+					string A;
+					Console.WriteLine("Введите трехзначное число.");
+					A = Console.ReadLine();
+					char[] ar = A.ToCharArray();
+					if (ar[0] == '-'){
+						if ((Convert.ToInt32(ar[1]) < Convert.ToInt32(ar[2])) && (Convert.ToInt32(ar[2]) < Convert.ToInt32(ar[3])))
+                        {
+							Console.WriteLine("Цифры данного числа образуют возрастающую последовательность.");
+						}
+						if ((Convert.ToInt32(ar[2]) < Convert.ToInt32(ar[1])) && (Convert.ToInt32(ar[3]) < Convert.ToInt32(ar[2])))
+                        {
+							Console.WriteLine("Цифры данного числа образуют убывающую последовательность.");
+						}
+					}
+					if(ar[0] != '-')
+					{
+						if ((Convert.ToInt32(ar[0]) < Convert.ToInt32(ar[1])) && (Convert.ToInt32(ar[1]) < Convert.ToInt32(ar[2])))
+						{
+							Console.WriteLine("Цифры данного числа образуют возрастающую последовательность.");
+						}
+						if ((Convert.ToInt32(ar[1]) < Convert.ToInt32(ar[0])) && (Convert.ToInt32(ar[2]) < Convert.ToInt32(ar[1])))
+						{
+							Console.WriteLine("Цифры данного числа образуют убывающую последовательность.");
+						}
+					}
 				}
 				if (q == "5")
 				{
-
+					string A;
+					Console.WriteLine("Введите четырехзначное число.");
+					A = Console.ReadLine();
+					char[] ar = A.ToCharArray();
+					if (ar[0] == '-')
+					{
+						if(String.Concat(ar[1], ar[2], ar[3], ar[4]) == String.Concat(ar[4], ar[3], ar[2], ar[1]))
+                        {
+							Console.WriteLine("Данное число читается одинаково слева направо и справа налево.");
+                        }
+					}
+					if (ar[0] != '-')
+					{
+						if (String.Concat(ar[0], ar[1], ar[2], ar[3]) == String.Concat(ar[3], ar[2], ar[1], ar[0]))
+						{
+							Console.WriteLine("Данное число читается одинаково слева направо и справа налево.");
+						}
+					}
 				}
 				if (q == "6")
 				{
-
+					int a, b, c;
+					Console.WriteLine("введите первую сторону треугольника.");
+					a = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine("введите вторую сторону треугольника.");
+					b = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine("введите третью сторону треугольника.");
+					c = Convert.ToInt32(Console.ReadLine());
+					if(((a < b + c) && (b < a + c) && (c < b + a))  &&  ((Math.Pow(a, 2) == Math.Pow(b, 2) + Math.Pow(c, 2)) || (Math.Pow(b, 2) == Math.Pow(a, 2) + Math.Pow(c, 2)) || (Math.Pow(c, 2) == Math.Pow(b, 2) + Math.Pow(a, 2))))
+                    {
+						Console.WriteLine("Треугольник со сторонами a, b, c является прямоугольным");
+                    }
+                    else
+                    {
+						Console.WriteLine("Треугольник со сторонами a, b, c не является прямоугольным");
+					}
 				}
 				if (q == "7")
 				{
-
+					int a, b, c;
+					Console.WriteLine("введите первую сторону треугольника.");
+					a = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine("введите вторую сторону треугольника.");
+					b = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine("введите третью сторону треугольника.");
+					c = Convert.ToInt32(Console.ReadLine());
+					if ((a < b + c) && (b < a + c) && (c < b + a))
+                    {
+						Console.WriteLine("Существует треугольник со сторонами a, b, c.");
+					}
+                    else
+                    {
+						Console.WriteLine("Треугольник со сторонами a, b, c не существует.");
+					}
 				}
 				Console.WriteLine("Продолжить программу? Введите \"+\" чтобы продолжить, в ином случае - что угодно.");
 				string answ = Console.ReadLine();

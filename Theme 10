@@ -8,7 +8,7 @@ namespace TestLearning
 		{
 			while (true)
 			{
-				Console.WriteLine("Задание к теме 6.");
+				Console.WriteLine("Задание к теме 10.");
 				Console.WriteLine(" ");
 				Console.WriteLine(@"Выберите выполняемую программу:
             - Даны два целых числа: A, B. Проверить истинность высказывания: «Справедливы неравенства A > 2 и B ≤ 3». (введите 1)

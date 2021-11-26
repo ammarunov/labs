@@ -1,0 +1,159 @@
+using System;
+
+namespace TestLearning
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			while (true)
+			{
+				Console.WriteLine("Задание к теме 11.");
+				Console.WriteLine(" ");
+				Console.WriteLine(@"Выберите выполняемую программу:
+            - Даны две переменные целого типа: A и B. Если их значения не равны, то присвоить каждой переменной большее из этих значений, а если равны, то присвоить переменным нулевые значения. Вывести новые значения переменных A и B. (введите 1)
+            - Даны три числа. Найти сумму двух наибольших из них. (введите 2)
+            - На плоскости расположены три точки: A, B, C. Определить, какая из двух последних точек (B или C) расположена ближе к A, и вывести эту точку и ее расстояние от точки A. (введите 3)
+            - Даны координаты точки, не лежащей на координатных осях OX и OY. Определить номер координатной четверти, в которой находится данная точка. (введите 4)
+            - Дано целое число. Вывести его строку-описание вида «отрицательное четное число», «нулевое число», «положительное нечетное число» и т. д. (введите 5)
+            - Дано целое число, лежащее в диапазоне 1–999. Вывести его строкуописание вида «четное двузначное число», «нечетное трехзначное число» и т. д. (введите 6)");
+				string q = Console.ReadLine();
+				if (q == "1")
+				{
+					int A, B;
+					Console.WriteLine("Введите первое число А.");
+					A = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine("Введите второе число B.");
+					B = Convert.ToInt32(Console.ReadLine());
+					if (A != B)
+						A = B = Math.Max(A, B);
+					else
+						A = B = 0;
+					Console.WriteLine($"Теперь A = {A}, а B = {B}.");
+				}
+				if (q == "2")
+				{
+					int A, B, C;
+					Console.WriteLine("Введите первое число А.");
+					A = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine("Введите второе число B.");
+					B = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine("Введите третье число C.");
+					C = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine($"Сумма двух наибольших чисел из данных равна {(A + B + C) - Math.Min(A, Math.Min(B, C))}");
+				}
+				if (q == "3")
+				{
+					double[] A = new double[2];
+					double[] B = new double[2];
+					double[] C = new double[2];
+					Console.WriteLine("Введите координаты точки A.");
+					Console.Write("X = ");
+					A[0] = Convert.ToDouble(Console.ReadLine());
+					Console.Write("Y = ");
+					A[1] = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine("Введите координаты точки B.");
+					Console.Write("X = ");
+					B[0] = Convert.ToDouble(Console.ReadLine());
+					Console.Write("Y = ");
+					B[1] = Convert.ToDouble(Console.ReadLine());
+					Console.WriteLine("Введите координаты точки C.");
+					Console.Write("X = ");
+					C[0] = Convert.ToDouble(Console.ReadLine());
+					Console.Write("Y = ");
+					C[1] = Convert.ToDouble(Console.ReadLine());
+					double AB = Math.Sqrt(Math.Pow(B[0] - A[0], 2) + Math.Pow(B[1] - A[1], 2));
+					double AC = Math.Sqrt(Math.Pow(C[0] - C[0], 2) + Math.Pow(C[1] - A[1], 2));
+					if (AB > AC)
+						Console.WriteLine($"Точка C расположена ближе к A, чем B, и расстояние от нее до точки A равно {AC}.");
+					else
+						Console.WriteLine($"Точка B расположена ближе к A, чем C, и расстояние от нее до точки A равно {AB}.");
+
+				}
+				if (q == "4")
+				{
+					double[] dot = new double[2];
+					Console.WriteLine("Введите координаты точки.");
+					Console.Write("X = ");
+					dot[0] = Convert.ToDouble(Console.ReadLine());
+					Console.Write("Y = ");
+					dot[1] = Convert.ToDouble(Console.ReadLine());
+					if (dot[0] > 0)
+                    {
+						if (dot[1] > 0)
+							Console.WriteLine("Первая координатная четверть.");
+						else
+							Console.WriteLine("Четвертая координатная четверть.");
+					}
+                    else
+                    {
+						if (dot[1] > 0)
+							Console.WriteLine("Вторая координатная четверть.");
+						else
+							Console.WriteLine("Третья координатная четверть.");
+					}
+				}
+				if (q == "5")
+				{
+					int num;
+					string[] sign = new string[] { "Отрицательное ", "Положительное ", "Нулевое " };
+					string[] parity = new string[] { "четное ", "нечетное " };
+					Console.WriteLine("Введите число.");
+					num = Convert.ToInt32(Console.ReadLine());
+					if (num == 0)
+						Console.WriteLine(sign[2] + "число.");
+					if (num > 0)
+                    {
+						if ((num % 2) == 0)
+							Console.WriteLine(sign[1] + parity[0] + "число.");
+						else
+							Console.WriteLine(sign[1] + parity[1] + "число.");
+					}
+                    if (num < 0)
+                    {
+						if ((num % 2) == 0)
+							Console.WriteLine(sign[0] + parity[0] + "число.");
+						else
+							Console.WriteLine(sign[0] + parity[1] + "число.");
+					}
+				}
+				if (q == "6")
+				{
+					int num;
+					string[] parity = new string[] { "Четное ", "Нечетное " };
+					string[] digit = new string[] { "однозначное ", "двухзначное ", "трехзначное " };
+					Console.WriteLine("Введите число.");
+					num = Convert.ToInt32(Console.ReadLine());
+					if (num / 10 < 1)
+                    {
+						if ((num % 2) == 0)
+							Console.WriteLine(parity[0] + digit[0] + "число.");
+						else
+							Console.WriteLine(parity[1] + digit[0] + "число.");
+					}
+					if ((num / 10 >= 1) && (num / 10 < 10))
+					{
+						if ((num % 2) == 0)
+							Console.WriteLine(parity[0] + digit[1] + "число.");
+						else
+							Console.WriteLine(parity[1] + digit[1] + "число.");
+					}
+					if (num / 10 >= 10)
+					{
+						if ((num % 2) == 0)
+							Console.WriteLine(parity[0] + digit[2] + "число.");
+						else
+							Console.WriteLine(parity[1] + digit[2] + "число.");
+					}
+				}
+				Console.WriteLine("Продолжить программу? Введите \"+\" чтобы продолжить, в ином случае - что угодно.");
+				string answ = Console.ReadLine();
+				if (answ == "+")
+					continue;
+				else
+					break;
+			}
+		}
+
+	}
+}

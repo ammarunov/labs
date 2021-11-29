@@ -89,153 +89,43 @@ namespace TestLearning
 					string[] tent = new string[] { "двадцать ", "тридцать ", "сорок ", "пятьдесят ", "шестьдесят ", "семьдесят ", "восемьдесят ", "девяносто " };
 					Console.WriteLine("Какое целое число?");
 					int N = Convert.ToInt32(Console.ReadLine());
-					char[] ar = N.ToString().ToCharArray();
-					int x = Convert.ToInt32(ar[0]);
-					int z = Convert.ToInt32(ar[1]);
-					int y = Convert.ToInt32(ar[2]);
-					switch (x)
-                    {
-						case (1):
-							if (N % 100 == 0)
-								Console.WriteLine(hund[x - 1]);
-							else if ((N % 100 > 0) && (N % 100 < 10))
-								Console.WriteLine(hund[x - 1] + un_1[y - 1]);
-							else if ((N % 100 >= 10) && (N % 100 < 20))
-								Console.WriteLine(hund[x - 1] + un[N % 100 - 10]);
-							else if (z > 1 && y == 0)
-								Console.WriteLine(hund[x - 1] + tent[z - 2]);
-							else
-								Console.WriteLine(hund[x - 1] + tent[z - 2] + un_1[y - 1]);
-							break;
-						
-						case (2):
-							if (N % 200 == 0)
-								Console.WriteLine(hund[x - 1]);
-							else if ((N % 200 > 0) && (N % 200 < 10))
-								Console.WriteLine(hund[x - 1] + un_1[y - 1]);
-							else if ((N % 200 >= 10) && (N % 200 < 20))
-								Console.WriteLine(hund[x - 1] + un[N % 200 - 10]);
-							else if (z > 1 && y == 0)
-								Console.WriteLine(hund[x - 1] + tent[z - 2]);
-							else
-								Console.WriteLine(hund[x - 1] + tent[z - 2] + un_1[y - 1]);
-							break;
-
-						case (3):
-							if (N % 300 == 0)
-								Console.WriteLine(hund[x - 1]);
-							else if ((N % 300 > 0) && (N % 300 < 10))
-								Console.WriteLine(hund[x - 1] + un_1[y - 1]);
-							else if ((N % 300 >= 10) && (N % 300 < 20))
-								Console.WriteLine(hund[x - 1] + un[N % 300 - 10]);
-							else if (z > 1 && y == 0)
-								Console.WriteLine(hund[x - 1] + tent[z - 2]);
-							else
-								Console.WriteLine(hund[x - 1] + tent[z - 2] + un_1[y - 1]);
-							break;
-
-						case (4):
-							if (N % 400 == 0)
-								Console.WriteLine(hund[x - 1]);
-							else if ((N % 400 > 0) && (N % 400 < 10))
-								Console.WriteLine(hund[x - 1] + un_1[y - 1]);
-							else if ((N % 400 >= 10) && (N % 400 < 20))
-								Console.WriteLine(hund[x - 1] + un[N % 400 - 10]);
-							else if (z > 1 && y == 0)
-								Console.WriteLine(hund[x - 1] + tent[z - 2]);
-							else
-								Console.WriteLine(hund[x - 1] + tent[z - 2] + un_1[y - 1]);
-							break;
-
-						case (5):
-							if (N % 500 == 0)
-								Console.WriteLine(hund[x - 1]);
-							else if ((N % 500 > 0) && (N % 500 < 10))
-								Console.WriteLine(hund[x - 1] + un_1[y - 1]);
-							else if ((N % 500 >= 10) && (N % 500 < 20))
-								Console.WriteLine(hund[x - 1] + un[N % 500 - 10]);
-							else if (z > 1 && y == 0)
-								Console.WriteLine(hund[x - 1] + tent[z - 2]);
-							else
-								Console.WriteLine(hund[x - 1] + tent[z - 2] + un_1[y - 1]);
-							break;
-
-						case (6):
-							if (N % 600 == 0)
-								Console.WriteLine(hund[x - 1]);
-							else if ((N % 600 > 0) && (N % 600 < 10))
-								Console.WriteLine(hund[x - 1] + un_1[y - 1]);
-							else if ((N % 600 >= 10) && (N % 600 < 20))
-								Console.WriteLine(hund[x - 1] + un[N % 600 - 10]);
-							else if (z > 1 && y == 0)
-								Console.WriteLine(hund[x - 1] + tent[z - 2]);
-							else
-								Console.WriteLine(hund[x - 1] + tent[z - 2] + un_1[y - 1]);
-							break;
-
-						case (7):
-							if (N % 700 == 0)
-								Console.WriteLine(hund[x - 1]);
-							else if ((N % 700 > 0) && (N % 700 < 10))
-								Console.WriteLine(hund[x - 1] + un_1[y - 1]);
-							else if ((N % 700 >= 10) && (N % 700 < 20))
-								Console.WriteLine(hund[x - 1] + un[N % 700 - 10]);
-							else if (z > 1 && y == 0)
-								Console.WriteLine(hund[x - 1] + tent[z - 2]);
-							else
-								Console.WriteLine(hund[x - 1] + tent[z - 2] + un_1[y - 1]);
-							break;
-
-						case (8):
-							if (N % 800 == 0)
-								Console.WriteLine(hund[x - 1]);
-							else if ((N % 800 > 0) && (N % 800 < 10))
-								Console.WriteLine(hund[x - 1] + un_1[y - 1]);
-							else if ((N % 800 >= 10) && (N % 800 < 20))
-								Console.WriteLine(hund[x - 1] + un[N % 800 - 10]);
-							else if (z > 1 && y == 0)
-								Console.WriteLine(hund[x - 1] + tent[z - 2]);
-							else
-								Console.WriteLine(hund[x - 1] + tent[z - 2] + un_1[y - 1]);
-							break;
-
-						case (9):
-							if (N % 900 == 0)
-								Console.WriteLine(hund[x - 1]);
-							else if ((N % 900 > 0) && (N % 900 < 10))
-								Console.WriteLine(hund[x - 1] + un_1[y - 1]);
-							else if ((N % 900 >= 10) && (N % 900 < 20))
-								Console.WriteLine(hund[x - 1] + un[N % 900 - 10]);
-							else if (z > 1 && y == 0)
-								Console.WriteLine(hund[x - 1] + tent[z - 2]);
-							else
-								Console.WriteLine(hund[x - 1] + tent[z - 2] + un_1[y - 1]);
-							break;
-					}
+					string num = Convert.ToString(N);
+					char[] ar = num.ToCharArray();
+					int x = Convert.ToInt32(Char.GetNumericValue(ar[0]));
+					int z = Convert.ToInt32(Char.GetNumericValue(ar[1]));
+					int y = Convert.ToInt32(Char.GetNumericValue(ar[2]));
+					if (N % (x * 100) == 0)
+						Console.WriteLine(hund[x - 1]);
+					else if ((N % (x * 100) > 0) && (N % (x * 100) < 10))
+						Console.WriteLine(hund[x - 1] + un_1[y - 1]);
+					else if ((N % (x * 100) >= 10) && (N % (x * 100) < 20))
+						Console.WriteLine(hund[x - 1] + un[N % (x * 100) - 10]);
+					else if (z > 1 && y == 0)
+						Console.WriteLine(hund[x - 1] + tent[z - 2]);
+					else
+						Console.WriteLine(hund[x - 1] + tent[z - 2] + un_1[y - 1]);
 				}
 				if (q == "5")
 				{
-					int num;
-					string[] sign = new string[] { "Отрицательное ", "Положительное ", "Нулевое " };
-					string[] parity = new string[] { "четное ", "нечетное " };
-					Console.WriteLine("Введите число.");
-					num = Convert.ToInt32(Console.ReadLine());
-					if (num == 0)
-						Console.WriteLine(sign[2] + "число.");
-					if (num > 0)
+					string[] color = new string[] { "Зеленой ", "Красной ", "Желтой ", "Белой ", "Черной " };
+					string[] color_1 = new string[] { "Зеленого ", " Красного ", "Желтого ", "Белого ", "Черного " };
+					string[] animal = new string[] { "Крысы", "Коровы", "Тигра", "Зайца", "Дракона", "Змеи", "Лошади", "Овцы", "Обезьяны", "Курицы", "Собаки", "Свиньи" };
+					Console.WriteLine("Какой год?");
+					int N = Convert.ToInt32(Console.ReadLine());
+					if ((N % 60 - 4) < 12)
                     {
-						if ((num % 2) == 0)
-							Console.WriteLine(sign[1] + parity[0] + "число.");
+						if (((N % 60) - 4) == 2 || ((N % 60) - 4) == 3 || ((N % 60) - 4) == 4)
+							Console.WriteLine("Год " + color_1[((N % 60) - 4) / 12] + animal[(N % 60) - 4]);
 						else
-							Console.WriteLine(sign[1] + parity[1] + "число.");
+							Console.WriteLine("Год " + color[((N % 60) - 4) / 12] + animal[(N % 60) - 4]);
 					}
-                    if (num < 0)
+                    else
                     {
-						if ((num % 2) == 0)
-							Console.WriteLine(sign[0] + parity[0] + "число.");
+						if ((((N % 60) - 4) % 12) == 2 || (((N % 60) - 4) % 12) == 3 || (((N % 60) - 4) % 12) == 4)
+							Console.WriteLine("Год " + color_1[((N % 60) - 4) / 12] + animal[((N % 60) - 4) % 12]);
 						else
-							Console.WriteLine(sign[0] + parity[1] + "число.");
-					}		
+							Console.WriteLine("Год " + color[((N % 60) - 4) / 12] + animal[((N % 60) - 4) % 12]);
+					} 
 				}
 				Console.WriteLine("Продолжить программу? Введите \"+\" чтобы продолжить, в ином случае - что угодно.");
 				string answ = Console.ReadLine();

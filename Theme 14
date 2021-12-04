@@ -61,16 +61,21 @@ namespace TestLearning
 				{
 					int K = 0;
 					double x, P, S = 1000;
+					string[] month = new string[] { "месяц", "месяца", "месяцев" };
 					Console.WriteLine("Чему равен процент P?");
 					P = Convert.ToInt32(Console.ReadLine());
 					x = P / 100;
-					Console.WriteLine(x);
 					while (S < 1100)
                     {
 						K++;
 						S *= (1 + x);
                     }
-					Console.WriteLine($"Вклад увеличится до суммы {Math.Round(S, 2)} за {K} месяца.");
+					if (K == 1)
+						Console.WriteLine($"Вклад увеличится до суммы {Math.Round(S, 2)} за {K} " + month[0]);
+					else if (K > 1 && K <= 4)
+						Console.WriteLine($"Вклад увеличится до суммы {Math.Round(S, 2)} за {K} " + month[1]);
+					else if (K > 5)
+						Console.WriteLine($"Вклад увеличится до суммы {Math.Round(S, 2)} за {K} " + month[2]);
 				}
 				if (q == "5")
 				{

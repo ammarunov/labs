@@ -65,7 +65,7 @@ namespace TestLearning
 					Console.WriteLine("Чему равен процент P?");
 					P = Convert.ToInt32(Console.ReadLine());
 					x = P / 100;
-					while (S < 1100)
+					while (S <= 1100)
                     {
 						K++;
 						S *= (1 + x);

@@ -38,7 +38,7 @@ namespace TestLearning
 					A = Convert.ToInt32(Console.ReadLine());
 					Console.WriteLine("Чему равно число B?");
 					B = Convert.ToInt32(Console.ReadLine());
-					while (A > B)
+					while (A >= B)
 						A -= B;
 					Console.WriteLine($"Длина незанятой части отрезка равна {A}.");
                    

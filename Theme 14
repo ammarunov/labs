@@ -55,7 +55,7 @@ namespace TestLearning
 						if (S == N)
 							break;
 					}
-					Console.WriteLine($"Наименьшее число К равно {K}, а их сумма равна {S}");
+					Console.WriteLine($"Наименьшее число К равно {K}, а сумма чисел равна {S}");
 				}
 				if (q == "4")
 				{

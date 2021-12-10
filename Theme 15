@@ -1,0 +1,143 @@
+using System;
+
+namespace TestLearning
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			Console.SetWindowSize(150, 40);
+			while (true)
+			{
+				Console.WriteLine("Задание к теме 15.");
+				Console.WriteLine(" ");
+				Console.WriteLine(@"Выберите выполняемую программу:
+            - Описать функцию PowerA3(A, B), вычисляющую третью степень числа A и возвращающую ее в переменной B (A — входной, B — выходной параметр; оба параметра являются вещественными). С помощью этой функции найти третьи степени пяти данных чисел. (введите 1)
+            - Описать функцию Sign(X) целого типа, возвращающую для вещественного числа X следующие значения: −1, если X < 0; 0, если X = 0; 1, если X > 0. С помощью этой функции найти значение выражения Sign(A) + Sign(B) для данных вещественных чисел A и B. (введите 2)
+            - Описать функцию RingS(R1, R2) вещественного типа, находящую площадь кольца, заключенного между двумя окружностями с общим центром и радиусами R1 и R2 (R1 и R2 — вещественные, R1 > R2). С ее помощью найти площади трех колец, для которых даны внешние и внутренние радиусы. (введите 3)
+            - Описать функцию Quarter(x, y) целого типа, определяющую номер координатной четверти, в которой находится точка с ненулевыми вещественными координатами (x, y). С помощью этой функции найти номера координатных четвертей для трех точек с данными ненулевыми координатами. (введите 4)
+            - Описать функцию Fact2(N) вещественного типа, вычисляющую двойной факториал: N!! = 1·3·5·. . .·N, если N — нечетное; N!! = 2·4·6·. . .·N, если N — четное (N > 0 — параметр целого типа; вещественное возвращаемое значение используется для того, чтобы избежать целочисленного переполнения при больших значениях N). (введите 5)");
+				Console.WriteLine("\n");
+				string q = Console.ReadLine();
+				if (q == "1")
+				{
+					static double PowerA3(double A)
+                    {
+						double B = Math.Pow(A, 3);
+						return B;
+                    }
+					
+					for (int i = 1; i <= 5; i++)
+                    {
+						Console.WriteLine($"{i}-e число?");
+						double A = Convert.ToDouble(Console.ReadLine());
+						Console.WriteLine($"Данное число в третьей степени равно {PowerA3(A)}");
+						Console.WriteLine("\n");
+					}
+				}
+				if (q == "2")
+				{
+					static int Sign(double X)
+                    {
+						int B = 0;
+						if (X < 0)
+							B = -1;
+						else if (X == 0)
+							B = 0;
+						else if (X > 0)
+							B = 1;
+						return B;
+                    }
+					double A, B;
+					Console.WriteLine("Чему равно число A?");
+					A = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine("Чему равно число B?");
+					B = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine($"Для данных вещественных чисел значение выражения Sign(A) + Sign(B) будет равно {Sign(A) + Sign(B)}.");
+				}
+				if (q == "3")
+				{
+					static double RingS(double R1, double R2)
+                    {
+						double S = Math.Round(Math.PI * (Math.Pow(R1, 2) - Math.Pow(R2, 2)), 2);
+						return S;
+                    }
+					for (int i = 1; i <= 3; i++)
+					{
+						Console.WriteLine($"{i}-е кольцо.");
+						Console.WriteLine("Чему равен радиус R1?");
+						double R1 = Convert.ToDouble(Console.ReadLine());
+						Console.WriteLine("Чему равно радиус R2?");
+						double R2 = Convert.ToDouble(Console.ReadLine());
+						Console.WriteLine($"Площадь {i}-го кольца равна {RingS(R1, R2)}");
+						Console.WriteLine("\n");
+					}
+
+				}
+				if (q == "4")
+				{
+					static int Quarter(double x, double y)
+                    {
+						int N = 0;
+						if (x > 0)
+                        {
+							if (y > 0)
+								N = 1;
+							else
+								N = 4;
+                        }
+                        else
+                        {
+							if (y > 0)
+								N = 2;
+							else
+								N = 3;
+						}
+						return N;
+                    }
+					for (int i = 1; i <= 3; i++)
+					{
+						Console.WriteLine($"{i}-я точка.");
+						Console.WriteLine("Чему равен X?");
+						double X = Convert.ToDouble(Console.ReadLine());
+						Console.WriteLine("Чему равен Y?");
+						double Y = Convert.ToDouble(Console.ReadLine());
+						if (Quarter(X, Y) == 2)
+							Console.WriteLine($"{i}-я точка расположена во {Quarter(X, Y)}-й координатной плоскости.");
+						else
+							Console.WriteLine($"{i}-я точка расположена в {Quarter(X, Y)}-й координатной плоскости.");
+						Console.WriteLine("\n");
+					}
+				}
+				if (q == "5")
+				{
+					static double Fact2(int N)
+                    {
+						double S = 1;
+						if (N % 2 != 0)
+                        {
+							for (int i = 1; i <= N; i += 2)
+								S *= i;						
+                        }
+                        else
+                        {
+							for (int i = 2; i <= N; i += 2)
+								S *= i;
+						}
+						return S;
+                    }
+					Console.WriteLine($"Чему равно число N?");
+					int N = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine($"Двойной факториал числа {N} равен {Fact2(N)}.");
+				}				
+				Console.WriteLine("Продолжить программу? Введите \"+\" чтобы продолжить, в ином случае - что угодно.");
+				string answ = Console.ReadLine();
+				if (answ == "+")
+					continue;
+				else
+					break;
+			}
+		}
+
+	}
+}

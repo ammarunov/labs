@@ -1,0 +1,136 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace TestLearning
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			Console.SetWindowSize(150, 40);
+			while (true)
+			{
+				Console.WriteLine("Задание к теме 17.");
+				Console.WriteLine(" ");
+				Console.WriteLine(@"Выберите выполняемую программу:
+            - Дан массив размера N и целые числа K и L (1 ≤ K ≤ L ≤ N). Найти среднее арифметическое элементов массива с номерами от K до L включительно. (введите 1)
+            - Дан целочисленный массив размера N, не содержащий одинаковых чисел. Проверить, образуют ли его элементы арифметическую прогрессию. Если образуют, то вывести разность прогрессии, если нет — вывести 0. (введите 2)
+            - Дан массив A размера N. Найти минимальный элемент из его элементов с четными номерами: A2, A4, A6, (введите 3)
+            - Дан массив размера N. Найти номер его последнего локального максимума (локальный максимум — это элемент, который больше любого из своих соседей). (введите 4)
+            - Дан целочисленный массив размера N, содержащий ровно два одинаковых элемента. Найти номера одинаковых элементов и вывести эти номера в порядке возрастания (введите 5)");
+				Console.WriteLine("\n");
+				string q = Console.ReadLine();
+				if (q == "1")
+				{
+					Console.WriteLine("Каков размер массива (N)?");
+					int N = Convert.ToInt32(Console.ReadLine());
+					double[] mass = new double[N];
+					Console.WriteLine("Чему равно число K?");
+					int K = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine("Чему равно число L?");
+					int L = Convert.ToInt32(Console.ReadLine());
+					for (int i = 1; i <= N; i++)
+					{
+						Console.WriteLine($"Чему равен {i}-й элемент?");
+						mass[i - 1] = Convert.ToDouble(Console.ReadLine());
+					}
+					double sum = 0;
+					for (int y = K; y <= L; y++)
+						sum += mass[y];
+					Console.WriteLine($"Среднее арифметическое элементов массива с номерами от K до L равно {Math.Round(sum / (L - K + 1), 2)}");
+				}
+				if (q == "2")
+				{
+					Console.WriteLine("Чему равно число N?");
+					int N = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine("Чему равен первый член геометрической прогрессии?");
+					int A = Convert.ToInt32(Console.ReadLine());
+					Console.WriteLine("Чему равен знаменатель геометрической прогрессии?");
+					int D = Convert.ToInt32(Console.ReadLine());
+					int[] mass = new int[N];
+					mass[0] = A;
+					for (int i = 1; i < N; i++)
+					{
+						mass[i] = A * D;
+						A *= D;
+					}
+					foreach (int item in mass)
+						Console.Write(item + " ");
+					Console.WriteLine("\n");
+				}
+				if (q == "3")
+				{
+					Console.WriteLine("Каков размер массива (N)?");
+					int N = Convert.ToInt32(Console.ReadLine());
+					double[] mass = new double[N];
+					for (int i = 1; i <= N; i++)
+					{
+						Console.WriteLine($"Чему равен {i}-й элемент?");
+						mass[i - 1] = Convert.ToDouble(Console.ReadLine());
+					}
+					List<double> list = new List<double>();
+					for (int i = 2; i <= N; i += 2)
+                    {
+						if (i == N)
+						{
+							list.Add(mass[N - 1]);
+							break;
+						}
+						list.Add(mass[i - 1]);
+					}						
+					Console.WriteLine($"Минимальный элемент из его элементов с четными номерами равен {list.Min()}");
+				}
+				if (q == "4")
+				{
+					Console.WriteLine("Каков размер массива (N)?");
+					int N = Convert.ToInt32(Console.ReadLine());
+					double[] mass = new double[N];
+					for (int i = 1; i <= N; i++)
+					{
+						Console.WriteLine($"Чему равен {i}-й элемент?");
+						mass[i - 1] = Convert.ToDouble(Console.ReadLine());
+					}
+					int x = 1;
+					for (int i = 1; i < N - 1; i++)
+                    {
+						if ((mass[i] > mass[i - 1]) && (mass[i] > mass[i + 1]))
+							x = i + 1;
+                    }
+					Console.WriteLine($"Номер последнего локального максимума данного массива равен {x}");
+				}
+				if (q == "5")
+				{
+					void PrintDublicates_HashSet(int[] n)
+					{
+						var set = new HashSet<int>();
+						int index = 0;
+						foreach (var item in n)
+                        {
+							int i = index;
+							index++;							
+							if (!set.Add(item))
+								Console.WriteLine(item + " " + i + " " + index);
+						}							
+					}
+					Console.WriteLine("Каков размер массива (N)?");
+					int N = Convert.ToInt32(Console.ReadLine());
+					int[] mass = new int[N];
+					for (int i = 1; i <= N; i++)
+					{
+						Console.WriteLine($"Чему равен {i}-й элемент?");
+						mass[i - 1] = Convert.ToInt32(Console.ReadLine());
+					}
+					PrintDublicates_HashSet(mass);
+				}
+				Console.WriteLine("Продолжить программу? Введите \"+\" чтобы продолжить, в ином случае - что угодно.");
+				string answ = Console.ReadLine();
+				if (answ == "+")
+					continue;
+				else
+					break;
+			}
+		}
+
+	}
+}

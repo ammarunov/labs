@@ -42,22 +42,24 @@ namespace TestLearning
 				}
 				if (q == "2")
 				{
-					Console.WriteLine("Чему равно число N?");
+					Console.WriteLine("Каков размер массива (N)?");
 					int N = Convert.ToInt32(Console.ReadLine());
-					Console.WriteLine("Чему равен первый член геометрической прогрессии?");
-					int A = Convert.ToInt32(Console.ReadLine());
-					Console.WriteLine("Чему равен знаменатель геометрической прогрессии?");
-					int D = Convert.ToInt32(Console.ReadLine());
-					int[] mass = new int[N];
-					mass[0] = A;
-					for (int i = 1; i < N; i++)
+					List<double> list = new List<double>();
+					for (int i = 1; i <= N; i++)
 					{
-						mass[i] = A * D;
-						A *= D;
+						Console.WriteLine($"Чему равен {i}-й элемент?");
+						list.Add(Convert.ToDouble(Console.ReadLine()));
 					}
-					foreach (int item in mass)
-						Console.Write(item + " ");
-					Console.WriteLine("\n");
+					list.Sort();
+					double[] mass = list.ToArray();
+					for (int i = 1; i < N - 1; i++)
+					{
+						if ((mass[i] - mass[i-1]) == (mass[i+1] - mass[i]))
+                        {
+
+
+                        }
+					}
 				}
 				if (q == "3")
 				{

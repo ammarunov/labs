@@ -36,30 +36,36 @@ namespace TestLearning
 						mass[i - 1] = Convert.ToDouble(Console.ReadLine());
 					}
 					double sum = 0;
-					for (int y = K; y <= L; y++)
+					for (int y = K - 1; y <= L - 1; y++)
 						sum += mass[y];
-					Console.WriteLine($"Среднее арифметическое элементов массива с номерами от K до L равно {Math.Round(sum / (L - K + 1), 2)}");
+					Console.WriteLine($"Среднее арифметическое элементов массива с номерами от K до L равно {sum / (L - K + 1)}");
 				}
 				if (q == "2")
 				{
 					Console.WriteLine("Каков размер массива (N)?");
 					int N = Convert.ToInt32(Console.ReadLine());
-					List<double> list = new List<double>();
+					bool f = true;
+					List<int> list = new List<int>();
 					for (int i = 1; i <= N; i++)
 					{
 						Console.WriteLine($"Чему равен {i}-й элемент?");
-						list.Add(Convert.ToDouble(Console.ReadLine()));
+						list.Add(Convert.ToInt32(Console.ReadLine()));
 					}
 					list.Sort();
-					double[] mass = list.ToArray();
-					for (int i = 1; i < N - 1; i++)
+					int[] mass = list.ToArray();
+					int dif = mass[1] - mass[0];
+					for (int i = 0; i < N; i++)
 					{
-						if ((mass[i] - mass[i-1]) == (mass[i+1] - mass[i]))
-                        {
-
-
-                        }
+						if (mass[i] != (mass[0] + (i) * dif))
+						{
+							f = false;
+							break;
+						}
 					}
+					if (f)
+						Console.WriteLine($"Разность прогрессии равна {dif}");
+					else
+						Console.WriteLine(0);
 				}
 				if (q == "3")
 				{
@@ -73,14 +79,14 @@ namespace TestLearning
 					}
 					List<double> list = new List<double>();
 					for (int i = 2; i <= N; i += 2)
-                    {
+					{
 						if (i == N)
 						{
 							list.Add(mass[N - 1]);
 							break;
 						}
 						list.Add(mass[i - 1]);
-					}						
+					}
 					Console.WriteLine($"Минимальный элемент из его элементов с четными номерами равен {list.Min()}");
 				}
 				if (q == "4")
@@ -94,27 +100,23 @@ namespace TestLearning
 						mass[i - 1] = Convert.ToDouble(Console.ReadLine());
 					}
 					int x = 1;
-					for (int i = 1; i < N - 1; i++)
-                    {
+					for (int i = 1; i <= N - 1; i++)
+					{
+						if (i == N - 1)
+                        {
+							if (mass[N - 1] > mass[N - 2])
+                            {
+								x = i + 1;
+								break;
+							}								
+                        }
 						if ((mass[i] > mass[i - 1]) && (mass[i] > mass[i + 1]))
 							x = i + 1;
-                    }
+					}
 					Console.WriteLine($"Номер последнего локального максимума данного массива равен {x}");
 				}
 				if (q == "5")
-				{
-					void PrintDublicates_HashSet(int[] n)
-					{
-						var set = new HashSet<int>();
-						int index = 0;
-						foreach (var item in n)
-                        {
-							int i = index;
-							index++;							
-							if (!set.Add(item))
-								Console.WriteLine(item + " " + i + " " + index);
-						}							
-					}
+				{					
 					Console.WriteLine("Каков размер массива (N)?");
 					int N = Convert.ToInt32(Console.ReadLine());
 					int[] mass = new int[N];
@@ -123,7 +125,17 @@ namespace TestLearning
 						Console.WriteLine($"Чему равен {i}-й элемент?");
 						mass[i - 1] = Convert.ToInt32(Console.ReadLine());
 					}
-					PrintDublicates_HashSet(mass);
+					for (int i = 0; i < N; ++i)
+					{
+						for (int j = i + 1; j < N; ++j)
+							if (mass[i] == mass[j])
+							{
+								i++;
+								j++;
+								Console.WriteLine(i + " " + j);
+								break;
+							}
+					}
 				}
 				Console.WriteLine("Продолжить программу? Введите \"+\" чтобы продолжить, в ином случае - что угодно.");
 				string answ = Console.ReadLine();
